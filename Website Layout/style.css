@@ -1,57 +1,103 @@
+/* Reset default styles */
 * {
     box-sizing: border-box; 
 }
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: row;
     margin: 0;
 }
+
+/* Sidebar styling */
 .col-1 {
     background: #D7E8D4;
     flex: 1;
 }
+
+/* Main content styling */
 .col-2 {
     display: flex;
     flex-direction: column;
     flex: 5;
 }
-.content {
-    display: flex;
-    flex-direction: row;
-}
-.content > article {
-    flex: 4;
-    min-height: 60vh;
-}
+
+/* Header and footer */
 header, footer {
     background: yellowgreen;
     height: 20vh;
-}
-header, footer, article, nav {
     padding: 1em;
 }
+
+/* Card container */
 .cards {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    flex-direction: column;
-    max-height: 100vh;
-  }
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
 
-  .cards img {
-    margin: 10px;
-    border: 3px solid #000;
-    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.3); 
-    max-width: 23vw;
-  }
-  @media (min-width: 600px) {
+/* Card styling */
+.card {
+    flex: 0 0 250px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Image styling */
+.card img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Text inside the card */
+.card .text {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Button styling */
+.card .text > button {
+    background: gray;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.card .text > button:hover {
+    background: darkgray;
+}
+
+/* Responsive design */
+@media (min-width: 600px) {
     .cards {
-        height: auto;
-        flex-direction: row; /* Make images align in rows */
+        flex-direction: row;
         justify-content: center;
         align-content: flex-start;
     }
 }
 
-
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
